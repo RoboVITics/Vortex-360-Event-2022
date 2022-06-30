@@ -10,14 +10,19 @@ import Prizes from "./components/pages/Prizes";
 import FAQ from "./components/pages/FAQ";
 import Sponsors from "./components/pages/Sponsors";
 import Footer from "./components/pages/Footer";
+import NotificationModal from "./components/utils/NotificationModal";
+import { useState } from "react";
 
 function App() {
+  const [show, setShow] = useState(true);
+  const handleClose = () => setShow(false);
   return (
     <Router>
       <Navbar />
       <Home />
+      {show && <NotificationModal onClick={handleClose} />}
       <About />
-      <Domains />
+      {/* <Domains /> */}
       <Speakers />
       <Timeline />
       <Prizes />
